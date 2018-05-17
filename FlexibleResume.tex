@@ -1,0 +1,84 @@
+\newlength{\Margin}
+\setlength{\Margin}{1.75cm}
+
+%\documentclass[letterpaper]{Layouts/BasicCV}
+\documentclass[letterpaper]{Layouts/BriefResume}
+\begin{document}
+
+% Information about me
+\myname{John Doe}
+\myjobtitle{Software Developer}
+\mynumberphone{555.555.5555}
+\mymail{John@John.Doe}
+\myaddress{555 N Green Drive\newline Farmton, OH 43020}
+
+% The width of the longest line in the address (optional)
+\addresslength{\widthof{Farmton, OH 43020}}
+
+\mysite{www.JohnDoeCoder.Doe}
+\mysummary{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.}
+
+% List of skills
+\myskills{
+	{Java},
+	{C++ \& C},
+	{JavaScript},
+	{HTML \& CSS},
+	{Git \& GitHub}
+}
+
+\generateheader
+
+\begin{relatedwork}
+	\relatedworkitem{Senior Software Developer}{Clockwork Coding Co.}{May 2014}{Present}{
+		Cleveland, OH}{Supervisor: Joyce Bean}{555.558.5858}{
+			{Increased code performance by 200\%},
+			{Designed customer web portal}
+		}
+	\relatedworkitem{Software Engineer}{Farm Analytics Inc.}{Feb 2008}{Apr 2014}{
+		Farmton, OH}{Team Lead: Tom Thumb}{555.566.5665}{
+			{Improved reliability of portable diagnostic tools},
+			{Added diagnostic tests for new hardware}
+		}
+	\relatedworkitem{Junior Developer}{Reyes Web Services}{Dec 2006}{Feb 2008}{
+		Farmton, OH}{Supervisor: David Reyes}{555.513.1554}{
+			{Implemented efficient and dynamic web sites}
+		}
+\end{relatedwork}
+
+\begin{education}
+	\educationitem{Master of Science in Computer Science}{Cleveland State University}{May 2015}{}{
+		Cleveland, OH}{
+			{Emphasis on static code analysis}
+		}
+	\educationitem{Bachelor of Science in Computer Science}{Cleveland State University}{May 2007}{}{
+		Cleveland, OH}{
+			{Graduated Cum Laude},
+			{Minored in Esperanto}
+		}
+\end{education}
+
+\begin{otherwork}
+	\otherworkitem{Sales Associate}{Wal-Mart Supercenter}{Apr 2005}{Aug 2005}{
+		Patience, OH}{Dept. Manager: Lois Lane}{555.590.2819}{
+			{Kept shelves stocked and organized},
+			{Assisted customers in finding products}
+		}
+	\otherworkitem{Delivery Specialist}{Pizza the Hutt}{May 2004}{Aug 2004}{
+		Patience, OH}{Manager: Guido Giancello}{555.590.7289}{
+			{Safely and quickly navigated traffic},
+			{Innovated portable pizza storage}
+		}
+\end{otherwork}
+
+\begin{volunteer}
+	\volunteeritem{Big Brother}{Big Brothers Big Sisters of America}{Sep 2016}{Present}{
+		Cleveland, OH}{
+			{Participate in educational activities with at-risk youth},
+			{Provide emotional support for children facing challenges}
+		}
+\end{volunteer}
+
+\generatefooter
+
+\end{document}
