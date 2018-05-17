@@ -29,37 +29,22 @@
 % These commands can be overwritten with a different layout
 \newcommand{\myskills}[1]{\renewcommand{\myskills}{#1}}
 
-% New environment for related work experience
-\newenvironment{relatedwork}{%
-	\section*{Related Experience}
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-	\end{tabular*}
+% \NewTabEnvironment{environment name}{section title}{tabular columns}
+\newcommand{\NewTabEnvironment}[3]{
+	\newenvironment{#1}{
+		\section*{#2}
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#3}
+	}{
+		\end{tabular*}
+	}
 }
 
-% New environment for related work experience
-\newenvironment{otherwork}{%
-	\section*{Additional Work Experience}
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-	\end{tabular*}
-}
-
-% New environment for related work experience
-\newenvironment{education}{%
-	\section*{Education}
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-	\end{tabular*}
-}
-
-% New environment for related work experience
-\newenvironment{volunteer}{%
-	\section*{Volunteer Experience}
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-	\end{tabular*}
-}
+\NewTabEnvironment{RelatedWork}{Related Experience}{ll}
+\NewTabEnvironment{OtherWork}{Additional Experience}{ll}
+\NewTabEnvironment{Education}{Education}{ll}
+\NewTabEnvironment{Volunteer}{Volunteer Experience}{ll}
+\NewTabEnvironment{Publications}{Publications}{ll}
+\NewTabEnvironment{Awards}{Awards}{ll}
 
 \newlength{\datewidth}
 \setlength{\datewidth}{0.1\linewidth}
@@ -69,8 +54,12 @@
 \addtolength{\detailswidth}{-\datewidth}
 \addtolength{\detailswidth}{-\tabcolsep}
 
-% \workitem{title}{organization}{start date}{end date}{location}{contact name}{contact phone}{bullet points}
-\newcommand{\workitem}[8]{
+\newlength{\BulletItemSep}
+\setlength{\BulletItemSep}{1ex}
+
+% \WorkItem{title}{organization}{start date}{end date}{location}{contact name}{contact phone}{bullet points}
+\newcommand{\WorkItem}[8]{
+	\vspace{\topsep}
 	\parbox[t]{\datewidth}{
 		#3\ifthenelse{\equal{#4}{}}{}{\newline - #4}
 	}&\parbox[t]{\detailswidth}{
@@ -78,17 +67,19 @@
 		\textit{#2\hfill #5}
 		\ifthenelse{\equal{#6#7}{}}{}{\newline#6\hfill #7}
 		\ifthenelse{\equal{#8}{}}{}{
-			\begin{itemize}
+			\begin{itemize}[itemsep=\BulletItemSep, topsep=\BulletItemSep]
 			\foreach \b in {#8}{\item \b}
 			\end{itemize}
 		}
 	}\\
 }
 
-\newcommand{\relatedworkitem}[8]{\workitem{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}
-\newcommand{\otherworkitem}[8]{\workitem{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}
-\newcommand{\volunteeritem}[6]{\workitem{#1}{#2}{#3}{#4}{#5}{}{}{#6}}
-\newcommand{\educationitem}[6]{\volunteeritem{#1}{#2}{#3}{#4}{#5}{}}
+\newcommand{\RelatedWorkItem}[8]{\WorkItem{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}
+\newcommand{\OtherWorkItem}[8]{\WorkItem{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}
+\newcommand{\VolunteerItem}[6]{\WorkItem{#1}{#2}{#3}{#4}{#5}{}{}{#6}}
+\newcommand{\EducationItem}[6]{\VolunteerItem{#1}{#2}{#3}{#4}{#5}{#6}}
+\newcommand{\PublicationItem}[6]{\VolunteerItem{#1}{#2}{#3}{#4}{#5}{#6}}
+\newcommand{\AwardItem}[6]{\VolunteerItem{#1}{#2}{#3}{#4}{#5}{#6}}
 
 \newcommand{\generateheader}{
 	\ifthenelse{\equal{\addresslength}{}}{\renewcommand{\addresslength}{\widthof{\myaddress}}}{}

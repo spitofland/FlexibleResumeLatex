@@ -52,23 +52,11 @@
 	\end{itemize}
 }}
 
-% \workitem{title}{organization}{start date}{end date}{location}{contact name}{contact phone}{bullet points}
-\renewcommand{\workitem}[8]{
-	\vspace{\topsep}
-	\parbox[t]{\datewidth}{
-		#3\ifthenelse{\equal{#4}{}}{}{\newline - #4}
-	}&\parbox[t]{\detailswidth}{
-		\textbf{#1}\newline
-		\textit{#2\hfill #5}
-%		\ifthenelse{\equal{#6#7}{}}{}{\newline#6\hfill #7}
-		\ifthenelse{\equal{#8}{}}{}{
-			\begin{itemize}[itemsep=1ex, topsep=1ex]
-			\foreach \b in {#8}{\item \b}
-			\end{itemize}
-		}
-	}\\
-}
+% Contact name and number not displayed
+\renewcommand{\RelatedWorkItem}[8]{\WorkItem{#1}{#2}{#3}{#4}{#5}{}{}{#8}}
+\renewcommand{\OtherWorkItem}[8]{\WorkItem{#1}{#2}{#3}{#4}{#5}{}{}{#8}}
+\renewcommand{\VolunteerItem}[6]{\WorkItem{#1}{#2}{#3}{#4}{#5}{}{}{#6}}
 
 % Don't add other work experience
-\renewenvironment{otherwork}{}{}
-\renewcommand{\otherworkitem}[8]{}
+\renewenvironment{OtherWork}{}{}
+\renewcommand{\OtherWorkItem}[8]{}

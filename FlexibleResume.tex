@@ -5,6 +5,9 @@
 \documentclass[letterpaper]{Layouts/BriefResume}
 \begin{document}
 
+% Settings
+\setlength{\BulletItemSep}{1ex}	% Space between bullet items
+
 % Information about me
 \myname{John Doe}
 \myjobtitle{Software Developer}
@@ -29,55 +32,63 @@
 
 \generateheader
 
-\begin{relatedwork}
-	\relatedworkitem{Senior Software Developer}{Clockwork Coding Co.}{May 2014}{Present}{
+\begin{RelatedWork}
+	\RelatedWorkItem{Senior Software Developer}{Clockwork Coding Co.}{May 2014}{Present}{
 		Cleveland, OH}{Supervisor: Joyce Bean}{555.558.5858}{
 			{Increased code performance by 200\%},
 			{Designed customer web portal}
 		}
-	\relatedworkitem{Software Engineer}{Farm Analytics Inc.}{Feb 2008}{Apr 2014}{
+	\RelatedWorkItem{Software Engineer}{Farm Analytics Inc.}{Feb 2008}{Apr 2014}{
 		Farmton, OH}{Team Lead: Tom Thumb}{555.566.5665}{
 			{Improved reliability of portable diagnostic tools},
 			{Added diagnostic tests for new hardware}
 		}
-	\relatedworkitem{Junior Developer}{Reyes Web Services}{Dec 2006}{Feb 2008}{
+	\RelatedWorkItem{Junior Developer}{Reyes Web Services}{Dec 2006}{Feb 2008}{
 		Farmton, OH}{Supervisor: David Reyes}{555.513.1554}{
 			{Implemented efficient and dynamic web sites}
 		}
-\end{relatedwork}
+\end{RelatedWork}
 
-\begin{education}
-	\educationitem{Master of Science in Computer Science}{Cleveland State University}{May 2015}{}{
+\begin{Education}
+	\EducationItem{Master of Science in Computer Science}{Cleveland State University}{May 2015}{}{
 		Cleveland, OH}{
 			{Emphasis on static code analysis}
 		}
-	\educationitem{Bachelor of Science in Computer Science}{Cleveland State University}{May 2007}{}{
+	\EducationItem{Bachelor of Science in Computer Science}{Cleveland State University}{May 2007}{}{
 		Cleveland, OH}{
 			{Graduated Cum Laude},
 			{Minored in Esperanto}
 		}
-\end{education}
+\end{Education}
 
-\begin{otherwork}
-	\otherworkitem{Sales Associate}{Wal-Mart Supercenter}{Apr 2005}{Aug 2005}{
+\begin{OtherWork}
+	\OtherWorkItem{Sales Associate}{Wal-Mart Supercenter}{Apr 2005}{Aug 2005}{
 		Patience, OH}{Dept. Manager: Lois Lane}{555.590.2819}{
 			{Kept shelves stocked and organized},
 			{Assisted customers in finding products}
 		}
-	\otherworkitem{Delivery Specialist}{Pizza the Hutt}{May 2004}{Aug 2004}{
+	\OtherWorkItem{Delivery Specialist}{Pizza the Hutt}{May 2004}{Aug 2004}{
 		Patience, OH}{Manager: Guido Giancello}{555.590.7289}{
 			{Safely and quickly navigated traffic},
 			{Innovated portable pizza storage}
 		}
-\end{otherwork}
+\end{OtherWork}
 
-\begin{volunteer}
-	\volunteeritem{Big Brother}{Big Brothers Big Sisters of America}{Sep 2016}{Present}{
+\begin{Volunteer}
+	\VolunteerItem{Big Brother}{Big Brothers Big Sisters of America}{Sep 2016}{Present}{
 		Cleveland, OH}{
 			{Participate in educational activities with at-risk youth},
 			{Provide emotional support for children facing challenges}
 		}
-\end{volunteer}
+\end{Volunteer}
+
+\begin{Publications}
+	\PublicationItem{Static Validation of Web Services}{Computing Magazine}{Jan 2015}{}{}{}
+\end{Publications}
+
+\begin{Awards}
+	\AwardItem{Clockwork Punctual Employee of the Year}{Clockwork Coding Co.}{2016}{}{}{}
+\end{Awards}
 
 \generatefooter
 
