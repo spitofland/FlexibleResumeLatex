@@ -1,11 +1,12 @@
-\ProvidesClass{Layouts/BriefTwoColumnResumeWithIcons}[2018/05/16 One page, two column resume class with icons by personal information]
+\ProvidesClass{Layouts/BriefTwoColumnResumeWithIcons}[2018/05/20 One page, two column resume class with icons]
 \LoadClass{Layouts/BaseCV}
 \NeedsTeXFormat{LaTeX2e}
 
+\RequirePackage{marvosym}
 \usepackage[compact]{titlesec}
 
 \newlength{\leftwidth}
-\setlength{\leftwidth}{0.24\textwidth}
+\setlength{\leftwidth}{0.25\textwidth}
 
 \newlength{\rightwidth}
 \setlength{\rightwidth}{\textwidth}
@@ -21,9 +22,14 @@
 \setlength{\vbaroffset}{2em}
 \addtolength{\vbaroffset}{-\textheight}
 
-\setlength{\datewidth}{0.14\textwidth}
+\setlength{\DateWidth}{0.14\linewidth}
+
+\setlength{\DetailsWidth}{\linewidth}
+\addtolength{\DetailsWidth}{-\DateWidth}
+\addtolength{\DetailsWidth}{-\tabcolsep}
+
 \setlist{nolistsep}
-\setlist[itemize,1]{itemindent=-3mm}
+\setlist[itemize,1]{leftmargin=0.9\labelwidth}
 
 % These commands can be overwritten with a different layout
 % Setup the document
@@ -35,10 +41,12 @@
 		\vspace{\baselineskip}
 	}
 	\ifthenelse{\equal{\myjobtitle}{}}{}{{\Large\myjobtitle}}
-	\ifthenelse{\equal{\mynumberphone}{}}{}{\\\\\mynumberphone}
-	\ifthenelse{\equal{\mymail}{}}{}{\\\\\mymail}
-	\ifthenelse{\equal{\myaddress}{}}{}{\\\\\myaddress}
-	\ifthenelse{\equal{\mysite}{}}{}{\\\\\mysite}
+	\begin{itemize}[itemsep=1em, topsep=1em]
+	\ifthenelse{\equal{\mynumberphone}{}}{}{\item[\Large{\Telefon}]{\mynumberphone}}
+	\ifthenelse{\equal{\mymail}{}}{}{\item[\large{@}\hspace{2pt}]{\mymail}}
+	\ifthenelse{\equal{\myaddress}{}}{}{\item[\Large{\Letter}]{\myaddress}}
+	\ifthenelse{\equal{\mysite}{}}{}{\item[\Large{\Mundus}]{\mysite}}
+	\end{itemize}
 	\ifthenelse{\equal{\mysummary}{}}{}{\SectionTitle{Summary}\mysummary}
 	\SectionTitle{Skills}\myskills
 	\end{minipage}\hfill\rule[\vbaroffset]{1pt}{\vbarheight}\hfill

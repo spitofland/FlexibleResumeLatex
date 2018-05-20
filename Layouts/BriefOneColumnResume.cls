@@ -1,59 +1,50 @@
-\ProvidesClass{Layouts/BriefOneColumnResume}[2018/05/16 One page resume class]
+\ProvidesClass{Layouts/BriefOneColumnResume}[2018/05/20 Simple one page resume class]
 \LoadClass{Layouts/BaseCV}
 \NeedsTeXFormat{LaTeX2e}
 
+\usepackage{multicol}
 \usepackage[compact]{titlesec}
 
-\newlength{\leftwidth}
-\setlength{\leftwidth}{0.24\textwidth}
+\setlength{\DateWidth}{0.14\textwidth}
 
-\newlength{\rightwidth}
-\setlength{\rightwidth}{\textwidth}
-\addtolength{\rightwidth}{-\leftwidth}
-\addtolength{\rightwidth}{-\columnsep}
-\addtolength{\rightwidth}{-5mm}
+\setlength{\DetailsWidth}{\textwidth}
+\addtolength{\DetailsWidth}{-\DateWidth}
+\addtolength{\DetailsWidth}{-\tabcolsep}
 
-\newlength{\vbarheight}
-\setlength{\vbarheight}{\textheight}
-\addtolength{\vbarheight}{-2pt}
-
-\newlength{\vbaroffset}
-\setlength{\vbaroffset}{2em}
-\addtolength{\vbaroffset}{-\textheight}
-
-\setlength{\datewidth}{0.14\textwidth}
 \setlist{nolistsep}
-\setlist[itemize,1]{itemindent=-3mm}
+\setlist[itemize,1]{leftmargin=0.9\labelwidth}
 
-% These commands can be overwritten with a different layout
-% Setup the document
-\renewcommand{\generateheader}{
-	\begin{minipage}[t]{\leftwidth}
-	\ifthenelse{\equal{\myname}{}}{}{
-		\begin{flushleft}{\Huge\myname}\end{flushleft}
-		\hrule height 2pt
-		\vspace{\baselineskip}
-	}
-	\ifthenelse{\equal{\myjobtitle}{}}{}{{\Large\myjobtitle}}
-	\ifthenelse{\equal{\mynumberphone}{}}{}{\\\\\mynumberphone}
-	\ifthenelse{\equal{\mymail}{}}{}{\\\\\mymail}
-	\ifthenelse{\equal{\myaddress}{}}{}{\\\\\myaddress}
-	\ifthenelse{\equal{\mysite}{}}{}{\\\\\mysite}
-	\ifthenelse{\equal{\mysummary}{}}{}{\SectionTitle{Summary}\mysummary}
-	\SectionTitle{Skills}\myskills
-	\end{minipage}\hfill\rule[\vbaroffset]{1pt}{\vbarheight}\hfill
-	\begin{minipage}[t]{\rightwidth}
-}
+\renewcommand{\SectionTitle}[1]{\vspace{-1.5\topsep}\section*{#1}}
 
-\renewcommand{\generatefooter}{
-	\end{minipage}
-}
+% Renew this command to change the number of columns under "Skills"
+\newcommand{\NumSkillsColumns}{5}
 
 \renewcommand{\myskills}[1]{\renewcommand{\myskills}{
-	\begin{itemize}[itemsep=1ex, topsep=1ex]
+	\vspace{-\topsep}
+	\begin{multicols}{5}
+	\begin{itemize}[itemsep=1ex]
 	\foreach \s in {#1}{\item \s}
 	\end{itemize}
+	\end{multicols}
 }}
+
+\renewcommand{\generateheader}{
+	\ifthenelse{\equal{\addresslength}{}}{\renewcommand{\addresslength}{\widthof{\myaddress}}}{}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcr}
+		\ifthenelse{\equal{\myname}{}}{}{{\Huge\myname}}&
+		\ifthenelse{\equal{\mysite}{}}{}{\ifthenelse{\equal{\mymail}{}}{}{\mymail}}&
+		\ifthenelse{\equal{\myaddress}{}}{}{\parbox{\addresslength}{\RaggedLeft\myaddress}}\\
+		\ifthenelse{\equal{\myjobtitle}{}}{}{{\Large\myjobtitle}}&
+		\ifthenelse{\equal{\mysite}{}}{\ifthenelse{\equal{\mymail}{}}{}{\mymail}}{\mysite}&
+		\ifthenelse{\equal{\mynumberphone}{}}{}{\mynumberphone}
+	\end{tabular*}
+	\hrule
+
+	\ifthenelse{\equal{\mysummary}{}}{}{\vspace{1em}\SectionTitle{Summary}\mysummary}
+
+	\vspace{1em}\SectionTitle{Skills}
+	\myskills
+}
 
 % Contact name and number not displayed
 \renewcommand{\RelatedWorkItem}[8]{\WorkItem{#1}{#2}{#3}{#4}{#5}{}{}{#8}}

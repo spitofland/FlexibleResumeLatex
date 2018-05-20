@@ -1,4 +1,4 @@
-\ProvidesClass{Layouts/BaseCV}[2018/05/16 Base CV Layout class]
+\ProvidesClass{Layouts/BaseCV}[2018/05/20 Base Curriculum Vitae Layout class]
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 
@@ -54,7 +54,7 @@
 \newlength{\DetailsWidth}
 \setlength{\DetailsWidth}{\textwidth}
 \addtolength{\DetailsWidth}{-\DateWidth}
-\addtolength{\DetailsWidth}{-\tabcolsep}
+\addtolength{\DetailsWidth}{-2\tabcolsep}
 
 \newlength{\BulletItemSep}
 \setlength{\BulletItemSep}{1ex}
