@@ -48,13 +48,13 @@
 \NewTabEnvironment{Publications}{Publications}{ll}
 \NewTabEnvironment{Awards}{Awards}{ll}
 
-\newlength{\datewidth}
-\setlength{\datewidth}{0.1\linewidth}
+\newlength{\DateWidth}
+\setlength{\DateWidth}{0.15\textwidth}
 
-\newlength{\detailswidth}
-\setlength{\detailswidth}{\linewidth}
-\addtolength{\detailswidth}{-\datewidth}
-\addtolength{\detailswidth}{-\tabcolsep}
+\newlength{\DetailsWidth}
+\setlength{\DetailsWidth}{\textwidth}
+\addtolength{\DetailsWidth}{-\DateWidth}
+\addtolength{\DetailsWidth}{-\tabcolsep}
 
 \newlength{\BulletItemSep}
 \setlength{\BulletItemSep}{1ex}
@@ -62,9 +62,9 @@
 % \WorkItem{title}{organization}{start date}{end date}{location}{contact name}{contact phone}{bullet points}
 \newcommand{\WorkItem}[8]{
 	\vspace{\topsep}
-	\parbox[t]{\datewidth}{
+	\parbox[t]{\DateWidth}{
 		#3\ifthenelse{\equal{#4}{}}{}{\newline - #4}
-	}&\parbox[t]{\detailswidth}{
+	}&\parbox[t]{\DetailsWidth}{
 		\textbf{#1}\newline
 		\textit{#2\hfill #5}
 		\ifthenelse{\equal{#6#7}{}}{}{\newline#6\hfill #7}

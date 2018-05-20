@@ -1,4 +1,4 @@
-\ProvidesClass{Layouts/BriefTwoColumnResume}[2018/05/16 One page, two column resume class]
+\ProvidesClass{Layouts/BriefTwoColumnResumeWithIcons}[2018/05/16 One page, two column resume class with icons by personal information]
 \LoadClass{Layouts/BaseCV}
 \NeedsTeXFormat{LaTeX2e}
 
