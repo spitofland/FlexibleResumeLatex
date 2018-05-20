@@ -29,10 +29,12 @@
 % These commands can be overwritten with a different layout
 \newcommand{\myskills}[1]{\renewcommand{\myskills}{#1}}
 
+\newcommand{\SectionTitle}[1]{\section*{#1}}
+
 % \NewTabEnvironment{environment name}{section title}{tabular columns}
 \newcommand{\NewTabEnvironment}[3]{
 	\newenvironment{#1}{
-		\section*{#2}
+		\SectionTitle{#2}
 		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#3}
 	}{
 		\end{tabular*}
@@ -93,9 +95,9 @@
 	\end{tabular*}
 	\hrule
 
-	\ifthenelse{\equal{\mysummary}{}}{}{\section*{Summary}\mysummary}
+	\ifthenelse{\equal{\mysummary}{}}{}{\SectionTitle{Summary}\mysummary}
 
-	\subsection*{Skills}
+	\SectionTitle{Skills}
 	\myskills
 }
 

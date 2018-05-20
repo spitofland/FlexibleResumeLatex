@@ -2,6 +2,8 @@
 \LoadClass{Layouts/BaseCV}
 \NeedsTeXFormat{LaTeX2e}
 
+\usepackage[compact]{titlesec}
+
 \newlength{\leftwidth}
 \setlength{\leftwidth}{0.24\textwidth}
 
@@ -21,6 +23,7 @@
 
 \setlength{\datewidth}{0.14\linewidth}
 \setlist{nolistsep}
+\setlist[itemize,1]{itemindent=-3mm}
 
 % These commands can be overwritten with a different layout
 % Setup the document
@@ -36,8 +39,8 @@
 	\ifthenelse{\equal{\mymail}{}}{}{\\\\\mymail}
 	\ifthenelse{\equal{\myaddress}{}}{}{\\\\\myaddress}
 	\ifthenelse{\equal{\mysite}{}}{}{\\\\\mysite}
-	\ifthenelse{\equal{\mysummary}{}}{}{\section*{Summary}\mysummary}
-	\section*{Skills}\myskills
+	\ifthenelse{\equal{\mysummary}{}}{}{\SectionTitle{Summary}\mysummary}
+	\SectionTitle{Skills}\myskills
 	\end{minipage}\hfill\rule[\vbaroffset]{1pt}{\vbarheight}\hfill
 	\begin{minipage}[t]{\rightwidth}
 }
