@@ -29,7 +29,7 @@
 \addtolength{\DetailsWidth}{-\tabcolsep}
 
 \setlist{nolistsep}
-\setlist[itemize,1]{leftmargin=0.9\labelwidth}
+\setlist[itemize,1]{leftmargin=0.7\labelwidth}
 
 % These commands can be overwritten with a different layout
 % Setup the document
@@ -41,7 +41,7 @@
 		\vspace{\baselineskip}
 	}
 	\ifthenelse{\equal{\myjobtitle}{}}{}{{\Large\myjobtitle}}
-	\begin{itemize}[itemsep=1em, topsep=1em]
+	\begin{itemize}[itemsep=1em, topsep=1em, leftmargin=0.9\labelwidth]
 	\ifthenelse{\equal{\mynumberphone}{}}{}{\item[\Large{\Telefon}]{\mynumberphone}}
 	\ifthenelse{\equal{\mymail}{}}{}{\item[\large{@}\hspace{2pt}]{\mymail}}
 	\ifthenelse{\equal{\myaddress}{}}{}{\item[\Large{\Letter}]{\myaddress}}
